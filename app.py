@@ -10,8 +10,13 @@ with open("dados.json", "r", encoding="utf-8") as file:
     DADOS_TABELA = json.load(file)
 
 @app.route('/')
-def index():
-    return render_template("index.html")
+#def index():
+#    return render_template("index.html")
+def home():
+    return "Deploy com Fly.io!"
+
+
+
 
 @app.route('/process', methods=['POST'])
 def process():
@@ -83,5 +88,8 @@ def gerar_relatorio(respostas, perfil, dados_perfil):
     pdf.output(pdf_path)
     return pdf_path
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+ #   app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
