@@ -13,7 +13,8 @@ with open("dados.json", "r", encoding="utf-8") as file:
 #def index():
 #    return render_template("index.html")
 def home():
-    return "Deploy com Fly.io!"
+    return render_template("index.html")
+    #return "Deploy com Fly.io!"
 
 
 
