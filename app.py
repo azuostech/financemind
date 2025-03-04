@@ -21,6 +21,9 @@ def home():
 
 @app.route('/process', methods=['POST'])
 def process():
+    #ver se os dados estão sendo enviados corretamente.
+    print(request.form) 
+    
     respostas = request.form.to_dict()
     
     # Determinar o perfil emocional predominante
@@ -36,7 +39,7 @@ def process():
 
 #funçao corrigida
 def analisar_respostas(respostas):
-    """Analisa as respostas e determina o perfil emocional predominante."""
+    #Analisa as respostas e determina o perfil emocional predominante
     perfis = {
         "Rejeição": 0,
         "Abandono": 0,
@@ -44,6 +47,8 @@ def analisar_respostas(respostas):
         "Traição": 0,
         "Injustiça": 0
     }
+
+    print("Respostas recebidas:", respostas)  # Debug para ver os valores recebidos
     
     for chave, resposta in respostas.items():
         for perfil in perfis:
