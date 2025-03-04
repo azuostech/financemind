@@ -1,0 +1,42 @@
+{
+    "Rejeição": {
+        "Maior Busca": "Ser visto, aceito e amado",
+        "Crença Limitante": "Eu só quero ser valorizado",
+        "Maior Dor": "Solidão e sensação de não pertencimento",
+        "Linguagem do Amor": "Palavras de afirmação",
+        "Traço Tóxico": "Dependência de validação externa ou apego evitativo (se afasta sem explicação)",
+        "Impacto Financeiro": "Busca status ou luxo para ser aceito, mas pode se endividar ou ter medo de investir por medo de falhar"
+    },
+    "Abandono": {
+        "Maior Busca": "Segurança emocional e presença constante",
+        "Crença Limitante": "Eu não quero ficar sozinho",
+        "Maior Dor": "Sensação de desamparo e carência",
+        "Linguagem do Amor": "Tempo de qualidade",
+        "Traço Tóxico": "Apego excessivo ou necessidade de atenção constante",
+        "Impacto Financeiro": "Tende a gastar para manter relações (presenteia, paga contas alheias) e pode evitar investimentos por medo de perda"
+    },
+    "Humilhação": {
+        "Maior Busca": "Ser respeitado e reconhecido",
+        "Crença Limitante": "Eu preciso provar meu valor",
+        "Maior Dor": "Vergonha e medo da exposição",
+        "Linguagem do Amor": "Atos de serviço",
+        "Traço Tóxico": "Autoanulação ou hipercompetitividade (se sobrecarrega para ser aceito)",
+        "Impacto Financeiro": "Se doa demais, trabalha sem cobrar o justo ou tem medo de se posicionar financeiramente"
+    },
+    "Traição": {
+        "Maior Busca": "Controle e previsibilidade",
+        "Crença Limitante": "Se eu não fizer, ninguém faz por mim",
+        "Maior Dor": "Desconfiança e medo de ser passado para trás",
+        "Linguagem do Amor": "Toque físico",
+        "Traço Tóxico": "Controlador ou desconfiado (tem dificuldade em delegar e confiar)",
+        "Impacto Financeiro": "Centraliza tudo, tem medo de sociedade e perde oportunidades por excesso de controle"
+    },
+    "Injustiça": {
+        "Maior Busca": "Equilíbrio e reconhecimento",
+        "Crença Limitante": "O mundo não é justo comigo",
+        "Maior Dor": "Raiva e frustração por se sentir desfavorecido",
+        "Linguagem do Amor": "Presentes",
+        "Traço Tóxico": "Perfeccionismo ou frieza emocional (tende a ser rígido e crítico)",
+        "Impacto Financeiro": "Dificuldade em se permitir desfrutar do dinheiro, sente que sempre precisa provar algo, pode reter dinheiro sem investir"
+    }
+}
