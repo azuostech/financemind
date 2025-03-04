@@ -15,7 +15,10 @@ def processar_planilha(uploaded_file):
             df = pd.read_csv(uploaded_file)
             
             # Definindo as colunas a serem mantidas
-            colunas_mantidas = ['D', 'I', 'J', 'K', 'L', 'N', 'O', 'Q', 'X', 'AB']
+            colunas_mantidas = [
+                'Nome da Conta Financeira', 'Conciliado', 'Observação/Descrição', 'Competência',
+                'Vencimento', 'Data Conciliação', 'Valor (R$)', 'Valor Realizado', 'Categoria', 'Cliente/Fornecedor'
+            ]
             
             # Verificando se todas as colunas existem na planilha
             colunas_existentes = [col for col in colunas_mantidas if col in df.columns]

@@ -9,6 +9,21 @@ app = Flask(__name__)
 with open("dados.json", "r", encoding="utf-8") as file:
     DADOS_TABELA = json.load(file)
 
+# Mapeamento de perguntas para os perfis emocionais
+MAPEAMENTO_PERGUNTAS = {
+    "pergunta1": "Rejeição",
+    "pergunta2": "Abandono",
+    "pergunta3": "Humilhação",
+    "pergunta4": "Traição",
+    "pergunta5": "Injustiça",
+    "pergunta6": "Rejeição",
+    "pergunta7": "Abandono",
+    "pergunta8": "Humilhação",
+    "pergunta9": "Traição",
+    "pergunta10": "Injustiça"
+}
+
+
 @app.route('/')
 #def index():
 #    return render_template("index.html")
@@ -21,13 +36,12 @@ def home():
 
 @app.route('/process', methods=['POST'])
 def process():
-    #ver se os dados estão sendo enviados corretamente.
-    print(request.form) 
-    
     respostas = request.form.to_dict()
+    print("Respostas recebidas:", respostas)  # Debugging
     
     # Determinar o perfil emocional predominante
     perfil = analisar_respostas(respostas)
+    print("Perfil dominante:", perfil)  # Debugging
     
     # Pegar os dados correspondentes do JSON
     dados_perfil = DADOS_TABELA.get(perfil, {})
@@ -39,32 +53,23 @@ def process():
 
 #funçao corrigida
 def analisar_respostas(respostas):
-    #Analisa as respostas e determina o perfil emocional predominante
-    perfis = {
-        "Rejeição": 0,
-        "Abandono": 0,
-        "Humilhação": 0,
-        "Traição": 0,
-        "Injustiça": 0
-    }
-
-    print("Respostas recebidas:", respostas)  # Debug para ver os valores recebidos
+     #Analisa as respostas e determina o perfil emocional predominante."""
+    perfis = {"Rejeição": 0, "Abandono": 0, "Humilhação": 0, "Traição": 0, "Injustiça": 0}
     
     for chave, resposta in respostas.items():
-        for perfil in perfis:
-            if perfil.lower() in chave.lower():
-                try:
-                    perfis[perfil] += int(resposta)
-                except ValueError:
-                    pass  # Ignora valores inválidos
-                
-    print("Pontuações finais:", perfis)  # Debug
+        if chave in MAPEAMENTO_PERGUNTAS:
+            perfil = MAPEAMENTO_PERGUNTAS[chave]
+            perfis[perfil] += int(resposta)
+    
+    print("Pontuações finais:", perfis)  # Debugging
+    
+    # Determinar qual ferida emocional tem a maior pontuação
     perfil_dominante = max(perfis, key=perfis.get)
-    print("Perfil dominante:", perfil_dominante)  # Debug
     return perfil_dominante
 
+
 def gerar_relatorio(respostas, perfil, dados_perfil):
-    """Gera um relatório em PDF com base no perfil identificado."""
+     #Gera um relatório em PDF com base no perfil identificado."""
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
