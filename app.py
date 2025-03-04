@@ -34,6 +34,7 @@ def process():
     
     return send_file(pdf_path, as_attachment=True)
 
+#funçao corrigida
 def analisar_respostas(respostas):
     """Analisa as respostas e determina o perfil emocional predominante."""
     perfis = {
@@ -45,19 +46,16 @@ def analisar_respostas(respostas):
     }
     
     for chave, resposta in respostas.items():
-        if "rejeicao" in chave:
-            perfis["Rejeição"] += int(resposta)
-        elif "abandono" in chave:
-            perfis["Abandono"] += int(resposta)
-        elif "humilhacao" in chave:
-            perfis["Humilhação"] += int(resposta)
-        elif "traicao" in chave:
-            perfis["Traição"] += int(resposta)
-        elif "injustica" in chave:
-            perfis["Injustiça"] += int(resposta)
-    
-    # Determinar qual ferida emocional tem a maior pontuação
+        for perfil in perfis:
+            if perfil.lower() in chave.lower():
+                try:
+                    perfis[perfil] += int(resposta)
+                except ValueError:
+                    pass  # Ignora valores inválidos
+                
+    print("Pontuações finais:", perfis)  # Debug
     perfil_dominante = max(perfis, key=perfis.get)
+    print("Perfil dominante:", perfil_dominante)  # Debug
     return perfil_dominante
 
 def gerar_relatorio(respostas, perfil, dados_perfil):
